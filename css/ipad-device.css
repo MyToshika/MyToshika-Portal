@@ -1,0 +1,141 @@
+
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#576370;
+	margin:0;
+	padding:0;
+	margin-top: 73px!important;
+	/*---background:url(../images/top_bg.jpg) 0 0 repeat-x;-------*/
+}
+
+.main_area {
+	width:auto;
+	margin:0 auto;
+}
+
+.main_wrap {
+	width:100%;
+	float:left;
+	padding: 10px;
+}
+
+.headingMenu{
+	padding: 10px 0px 0px 10px;
+}
+
+/*---------------------------------------------nav--------------------------------------------------*/
+.navarea_wrap {
+	width:auto;
+	float:right;
+	padding:10px 10px 0 0;
+}
+
+
+
+.top_text {
+	font:bold 12px/50px Verdana, Arial, Helvetica, sans-serif;
+	text-align:right;
+	padding:0 0px 0 0;
+}
+
+.topInfo {
+    font-size: 10px;
+    margin-top: 0px;
+}
+
+
+.topInfo li {
+    float: left;
+    margin-right: 5px;
+}
+/*---------------------------------------------logo--------------------------------------------------*/
+.logo_wrap {
+	width:120px;
+	float:left;
+}
+
+.logo_pad {
+	margin : 0px;
+	padding : 0px;
+}
+
+
+.body_wrap {
+	width: auto;
+	margin: 0 auto;
+}
+.left_body_wrap {
+	width: auto;
+	float: left;
+}
+
+.left_body_main {
+	width: auto;
+	float: left;
+}
+
+.watch_wrap {
+	width: 150px;
+	float: left;
+}
+
+.watch_wrap1 {
+	width: 500px;
+	float: left;
+	padding-left: 25px;
+}
+
+/*----------------------------------------------footer---------------------------------------------*/
+.footer_wrap {
+	width:auto;
+	float:left;
+	height:auto;
+	background:#332424;
+}
+.footer_area {
+	width:auto;
+	margin:0 auto;
+	padding:25px 0 0 0;
+}
+.footer_nav_area {
+	float:left;
+}
+.copy_wrap {
+	float:left;
+	font:normal 15px/18px Tahoma, Arial, Helvetica, sans-serif;
+	color:#f7931d;
+	text-align:left;
+}
+.copy_wrap a {
+	color:#f7931d;
+	text-decoration:none;
+}
+
+.footer_nav_text {
+	font:bold 15px/18px Tahoma, Arial, Helvetica, sans-serif;
+	color:#f7931d;
+}
+
+
+.main_area_contactUs {
+	width: auto;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+#myCarousel{
+	 height: auto;
+     overflow: hidden;
+     width: auto;
+     clear: both;
+}
+
+.navbar-default{
+    position: absolute;
+    right: 10px;
+}
+
+.navbar-default .navbar-nav{
+	min-width:180px;
+}

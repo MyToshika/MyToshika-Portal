@@ -1,0 +1,116 @@
+<div class="main_area_contactUs">
+
+	<div class="row">
+		<div class="col-md-3" itemscope itemtype="https://mytoshika.com">
+			<p style="font: bold 14px/15px Verdana, Arial, Helvetica, sans-serif;"><br/> MyToshika, Noida</p>
+			<p><span itemprop="Address">B-29, B Block, Sector 15 Metro Station, Noida, Uttar Pradesh(Near Metro Station)</span></p>
+			<hr>
+			<h5>PHONE:</h5>
+			<p><span itemprop="telephone">+91-7017403264</span></p>
+			<hr>
+			<h5>MOBILE OR WHATSAPP:</h5>
+			<p>+91- 9650424101</p>
+			<hr>
+			<h5>EMAIL:</h5>
+			<p><span itemprop="email">enquiry@mytoshika.com</span></p>
+			<hr>
+		</div>
+		<!-- End Of Col Md 3 -->
+		<div class="col-md-9">
+<!-- 			<iframe width="100%" height="400"
+				src="https://www.mapsdirections.info/en/custom-google-maps/map.php?width=100%&height=600&hl=ru&q=B%20-%2029%20%26%20Sector%20-%2015%2C%20Noida%20(U.P)%20(Near%20Metro%20Station)%2C%20Noida%2C%20Uttar%20Pradesh%20110096+(MyToshika)&ie=UTF8&t=&z=14&iwloc=A&output=embed"
+				frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+				<a href="https://www.mapsdirections.info/en/custom-google-maps/">Create a custom Google Map</a> by <a href="https://www.mapsdirections.info/en/">UK Maps</a>
+			</iframe> -->
+			    <h3><p style="font: bold 14px/5px Verdana, Arial, Helvetica, sans-serif;">MyToshika Noida Branch</p></h3>
+   				<div id="toshika-map"></div>
+			<br />
+		</div>
+		<!-- End Of Col Md 9 -->
+	</div>
+	<hr>
+	<div class="busniess_text">ENQUIRY FORM</div>
+    <div class="row">
+     
+     
+				<form id="contactUsForm" method="post" action='view/sendMail.php'>
+					<div class="col-md-12 form-group">
+						<label class="col-md-3 control-label">Name:<i
+							class="errorMand">*</i></label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="Name"
+								placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
+								title="Name should only contain letters.">
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group">
+						<label class="col-md-3 control-label">Email:<i
+							class="errorMand">*</i></label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="Email"
+								placeholder="Enter Your Email Address" required>
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group">
+						<label class="col-md-3 control-label">Contact Number:<i
+							class="errorMand">*</i></label>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="Phone"
+								placeholder="Enter Your Contact Number" required pattern="[0-9]+"
+								title="Phone number should only contain numbers.">
+						</div>
+					</div>
+
+					<div class="col-md-12 form-group">
+						<label class="col-md-3 control-label" for="Name">Comments/Question:<i
+							class="errorMand">*</i></label>
+						<div class="col-md-6">
+							<textarea name="Message" class="form-control"
+								placeholder="Enter Your Message" required></textarea>
+						</div>
+					</div>
+
+					<div style="margin-left: 150px;">
+						<input class="btn btn-default" type="submit" value="Send">
+						<input class="btn btn-default" type="reset" value="Reset">
+					</div>
+				</form>
+        </div>
+        <hr>
+</div>
+
+
+
+    <script>
+      function initMap() {
+    	  
+    	var  contentString = '<div><span style="font: bold 12px/25px Verdana, Arial, Helvetica, sans-serif;">MyToshika, Noida Branch</span><br />'+
+			'B-29, B Block (Near Metro Station),<br />Noida Sector 15, Noida, Uttar Pradesh </div>';
+			
+        var uluru = {lat: 28.5849327, lng: 77.3117759};
+        var map = new google.maps.Map(document.getElementById('toshika-map'), {
+          zoom: 14,
+          center: uluru
+        });
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+        
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+          title: 'MyToshika'
+        });
+        
+        infowindow.open(map, marker);
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM0cA5xTSM_-G01wz1xrMM7cAmUp1tCas&callback=initMap">
+    </script>
