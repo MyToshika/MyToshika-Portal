@@ -69,7 +69,7 @@
 		
 		<a href="https://www.instagram.com/mytoshika" target="_blank"><i class="fa fa-instagram" style="font-size:40px;color:#fb3958;"></i></a>
 
-		<a href="https://api.whatsapp.com/send?phone=9873844371" target="_blank"><i class="fa fa-whatsapp" style="font-size:40px;color:#3b5998"></i></a>
+		<a href="https://api.whatsapp.com/send?phone=+91-9873844371" target="_blank"><i class="fa fa-whatsapp" style="font-size:40px;color:#3b5998"></i></a>
         
 		<div id="msg">
 		
@@ -251,7 +251,7 @@
 								core java, advance java, struts, spring, hibernate, soap and
 								rest services in addition with AWS cloud services.</span>
 						<p style="padding: 6px 0 0 35px;"></p>
-						 <!-- <a href="view/RegisterationNow.html">REGISTER NOW</a> -->
+						<input type="button" id="registrationLink" value="Student Registration"></input>
 					</div>
 				</div>
 				<div>
@@ -286,24 +286,173 @@
 			<br class="blank" />
 		</div>
   </div>
+  
+  <!-- Modal -->
+<div class="modal fade" id="registrationModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button> 
+				<h4 class="modal-title">Registration Form</h4>                                                             
+			</div> 
+			<div class="modal-body">
+
+			    <div class="row">
+			     
+							<form id="registrationForm">
+								<div class="col-md-12 form-group">
+									<label class="col-md-3 control-label">Name<i
+										class="errorMand">*</i></label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="name" id="name"
+											placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
+											title="Name should only contain letters." />
+									</div>
+								</div>
+			
+								<div class="col-md-12 form-group">
+									<label class="col-md-3 control-label">Email<i
+										class="errorMand">*</i></label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="email" id="email"
+											placeholder="Enter Your Email Address" required />
+									</div>
+								</div>
+			
+								<div class="col-md-12 form-group">
+									<label class="col-md-3 control-label">Contact Number<i
+										class="errorMand">*</i></label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="phone" id="phone"
+											placeholder="Enter Your Contact Number" required pattern="[0-9]+"
+											title="Phone number should only contain numbers." />
+									</div>
+								</div>
+								<div class="col-md-12 form-group">
+									<label class="col-md-3 control-label">Qualification<i
+										class="errorMand">*</i></label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="qualification" id="qualification"
+											placeholder="Enter Your qualification" required />
+									</div>
+								</div>
+								<div class="col-md-12 form-group">
+									<label class="col-md-3 control-label">Batch Timing<i
+										class="errorMand">*</i></label>
+									<div class="col-md-6">
+										 <select id="timing" class="form-control" name="timing">
+			                                    <option value="10 AM">10 AM Batch</option>
+			                                    <option value="12 PM">12 PM Batch</option>
+			                                    <option value="2 PM">2 PM Batch</option>
+			                                    <option value="4 PM">4 PM Batch</option>
+			                             </select>
+									</div>
+								</div>
+								<div class="col-md-12 form-group">
+									<label class="col-md-3 control-label">Course<i
+										class="errorMand">*</i></label>
+									<div class="col-md-6">
+										 <select id="course" class="form-control" name="course">
+			                                   <option value="C Programming">C Programming</option>
+			                                    <option value="C++ Programming">C++ Programming</option>
+			                                    <option value="C & C++ Programming">C & C++ Programming</option>
+			                                    <option value="Core Java">Core Java</option>
+			                                    <option value="Advance Java">Advance Java</option>
+			                                    <option value="Core + Advance Java">Core + Advance Java</option>
+			                                </select>
+									</div>
+								</div>
+							</form>
+			        </div>
+
+			</div>   
+			<div class="modal-footer">
+			    <button type="button" class="btn btn-default" id="saveRegistrationForm">Register</button> 
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                               
+			</div>
+		</div>                                                                       
+	</div>                                          
+</div>
+  
+  
+  
   <button id="scrollTopButton" title="Go to top">Go Top</button>
-
-<script>
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        $('#scrollTopButton').css({'display':'block'});
-    }else{
-        $('#scrollTopButton').css({'display':'none'});
-    }
-}
-    
-</script>
 
 	<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js"></script>
    <script src="js/main.js" type="text/javascript"></script>
+   
+<script>
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function() {scrollFunction()};
+		
+		function scrollFunction() {
+		    if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		        $('#scrollTopButton').css({'display':'block'});
+		    }else{
+		        $('#scrollTopButton').css({'display':'none'});
+		    }
+		}
+    
+		
+	      $(document).ready(function(){
+	    	  
+	    	  $("#registrationLink").on("click", function(){
+	    		  $('#registrationModal').modal('show');
+	    	  });
+	    	  
+	          var registrationService = "https://script.google.com/macros/s/AKfycbxmad1_eWqVkpsYk8QToaYp9w2NMvLlraJvO_ukvo2tsIq2QWOo/exec";
+	    	   $("#saveRegistrationForm").on("click", function(){
+	      			$('.loading-image').show();
+	      			try{
+	      				saveRegistration();
+	      			}catch(e){
+	      				$('.loading-image').hide();
+	      				alert('Something went wrong! Please try again later.');
+	      				console.log(e);
+	      			}
+	      			
+	      		});
+	          
+	          saveRegistration = function() {
+	              var name = $("#name").val();
+	              var email = $("#email").val();
+	              var contactNo = $("#phone").val();
+	              var qualification = $("#qualification").val();
+	              var timing = $("#timing").val();
+	              var course = $("#course").val();
+	              var servicUrl = registrationService + "?callback=bindResponseRegistration&name=" + name + "&email=" + email + "&contactNo=" + contactNo +"&qualification=" + qualification + "&timing=" + timing + "&course=" + course + "&feature=registration";
+	             
+	              try{
+		              var request = jQuery.ajax({
+		                  crossDomain: true,
+		                  url: servicUrl,
+		                  method: "GET",
+		                  dataType: "jsonp"
+		              });
+	              }catch(e){
+	            	  alert(e);
+	            		$('.loading-image').hide();
+	              }
+
+	              
+	          };
+	          bindResponseRegistration = function(e) {
+	        	$('.loading-image').hide();
+	          	console.log(e.result);
+	          	if(e.result == 'Success'){
+	          		$("#registrationForm .resultMessage").remove(); 
+	          		$("#registrationForm .resultMessage").remove(); $("#registrationForm").prepend("<div class='resultMessage' style='color:green; text-align:center; font-size:18px; font-weight:bold'>Thank you for your feedback. We will get back to you soon.</div>");
+	          		$("#resetContactUsForm").click();
+	          	}else{
+	          		$("#registrationForm .resultMessage").remove(); 
+	          		$("#registrationForm").prepend("<div class='resultMessage' style='color:red; text-align:center; font-size:18px; font-weight:bold'>"+e.result+"</div>");
+	          	}
+	          	
+	          };
+	          
+	      });
+</script>
+
 </body>
 </html>
