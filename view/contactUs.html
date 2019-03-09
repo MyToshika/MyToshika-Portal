@@ -33,12 +33,12 @@
     <div class="row">
      
      
-				<form id="contactUsForm" method="post" action='view/sendMail.php'>
+				<form id="contactUsForm">
 					<div class="col-md-12 form-group">
 						<label class="col-md-3 control-label">Name:<i
 							class="errorMand">*</i></label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="Name"
+							<input type="text" class="form-control" name="name" id="name"
 								placeholder="Enter Your Name" required pattern="[a-zA-Z\s]+"
 								title="Name should only contain letters.">
 						</div>
@@ -48,7 +48,7 @@
 						<label class="col-md-3 control-label">Email:<i
 							class="errorMand">*</i></label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="Email"
+							<input type="text" class="form-control" name="email" id="email"
 								placeholder="Enter Your Email Address" required>
 						</div>
 					</div>
@@ -57,7 +57,7 @@
 						<label class="col-md-3 control-label">Contact Number:<i
 							class="errorMand">*</i></label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="Phone"
+							<input type="text" class="form-control" name="phone" id="phone"
 								placeholder="Enter Your Contact Number" required pattern="[0-9]+"
 								title="Phone number should only contain numbers.">
 						</div>
@@ -67,14 +67,14 @@
 						<label class="col-md-3 control-label" for="Name">Comments/Question:<i
 							class="errorMand">*</i></label>
 						<div class="col-md-6">
-							<textarea name="Message" class="form-control"
+							<textarea name="Message" class="form-control"  id="query"
 								placeholder="Enter Your Message" required></textarea>
 						</div>
 					</div>
 
 					<div style="margin-left: 150px;">
-						<input class="btn btn-default" type="submit" value="Send">
-						<input class="btn btn-default" type="reset" value="Reset">
+						<input class="btn btn-default" type="button" value="Save" id="saveContactUsForm">
+						<input class="btn btn-default" type="reset" value="Reset" id="resetContactUsForm">
 					</div>
 				</form>
         </div>
@@ -110,6 +110,50 @@
             infowindow.open(map, marker);
           });
       }
+      
+
+      $(document).ready(function(){
+          var contactUsService = "https://script.google.com/macros/s/AKfycbz359DRt2gFdiunX1825exkQtjfPTJ7CAG5i8TR9EbQQqxJlvs/exec";
+          saveContactUs = function() {
+              var name = $("#name").val();
+              var email = $("#email").val();
+              var contactNo = $("#phone").val();
+              var comments = $("#query").val();
+              var servicUrl = contactUsService + "?callback=bindResponseContactUs&name=" + name + "&email=" + email + "&contactNo=" + contactNo +"&comments=" + comments + "&feature=contactUs";
+              var request = jQuery.ajax({
+                  crossDomain: true,
+                  url: servicUrl,
+                  method: "GET",
+                  dataType: "jsonp"
+              });
+          };
+          bindResponseContactUs = function(e) {
+        	$('.loading-image').hide();
+          	console.log(e.result);
+          	if(e.result == 'Success'){
+          		$("#contactUsForm .resultMessage").remove(); 
+          		$("#contactUsForm .resultMessage").remove(); $("#contactUsForm").prepend("<div class='resultMessage' style='color:green; text-align:center; font-size:18px; font-weight:bold'>Thank you for your feedback. We will get back to you soon.</div>");
+          		$("#resetContactUsForm").click();
+          	}else{
+          		$("#contactUsForm .resultMessage").remove(); 
+          		$("#contactUsForm").prepend("<div class='resultMessage' style='color:red; text-align:center; font-size:18px; font-weight:bold'>"+e.result+"</div>");
+          	}
+          	
+          };
+          
+		$("#saveContactUsForm").on("click", function(){
+			$('.loading-image').show();
+			try{
+				saveContactUs();
+			}catch(e){
+				$('.loading-image').hide();
+				alert('Something went wrong! Please try again later.');
+				console.log(e);
+			}
+			
+		});
+      	    
+      });
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM0cA5xTSM_-G01wz1xrMM7cAmUp1tCas&callback=initMap">
